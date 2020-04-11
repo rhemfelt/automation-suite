@@ -9,6 +9,7 @@ export const Site = {
     submit: Selector("button").withText(/Submit/i),
     submitAgain: Selector("button").withText("Submit").nth(1),
   },
+
   link: {
     about: Selector("a").withText("About"),
     contact: Selector("a").withText(/Contact/i),

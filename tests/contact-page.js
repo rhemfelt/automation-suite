@@ -19,17 +19,17 @@ test("Validate Input Assertions", async (t) => {
   await t.click(Selector('a').withText("CONTACT"));
   await t.typeText(Selector(`[name="fname"]`), "TestCafe", { replace: true });
   await t.typeText(Selector(`[name="lname"]`), "User", { replace: true });
-await t.typeText(Selector(`[name="email"]`), "rhemfelt+testcafe@rabbet.com", { replace: true });
-await t.click(Selector(`[value="Submit"]`));
+  await t.typeText(Selector(`[name="email"]`), "rhemfelt+testcafe@rabbet.com", { replace: true });
+  await t.click(Selector(`[value="Submit"]`));
 //Verifies you cannot submit the form without Message and Subject
-await t.expect(Selector('div').withText('Subject is required.').exists).ok('Should not be able to submit form without Subject Line');
-await t.expect(Selector('div').withText('Message is required.').exists).ok('Should not be able to submit form without Message');
+  await t.expect(Selector('div').withText('Subject is required.').exists).ok('Should not be able to submit form without Subject Line');
+  await t.expect(Selector('div').withText('Message is required.').exists).ok('Should not be able to submit form without Message');
   });
 
   test("TreeHouse Link", async (t) => {
     await t.setNativeDialogHandler(() => true);
     await t.click(Site.link.about);
     await t.click(Selector('a').withText("Treehouse Profile"));
-    //verifies you are redirected to the correct TreeHouse URL
+//verifies you are redirected to the correct TreeHouse URL
     await t.expect(await helpers.getPageAddress()).contains("teamtreehouse.com/rhemfelt");
     });
