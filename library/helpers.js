@@ -1,4 +1,8 @@
-import { Selector, t } from "testcafe";
+import {
+  ClientFunction,
+  Selector,
+  t,
+   } from "testcafe";
 import { Site } from "./selectors";
 
 //Clicks  through all of the buttons on the Buttons page
@@ -50,4 +54,9 @@ export async function verifyContactInfo(contactList) {
    }
 await runThroughContactArray(contactList[i]);
   }
+}
+
+export async function getPageAddress() {
+  const url = ClientFunction(() => document.location.href);
+  return url();
 }

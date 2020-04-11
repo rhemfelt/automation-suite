@@ -9,7 +9,6 @@ test("Verify Page Buttons", async (t) => {
   await t.setNativeDialogHandler(() => true);
   await t.click(Site.link.about);
   await t.click(Selector("a").withText("Push the buttons"));
-
   await helpers.clickThroughButtons([
     Selector("button").withText("Button 0"),
     Selector("button").withText("Button 1"),
