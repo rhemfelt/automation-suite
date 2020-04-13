@@ -24,14 +24,17 @@ export async function getRandomNumber() {
   return Math.floor(Math.random() * 20) + 1;
 }
 
+let trueMessage = "Number should have validated true";
+let falseMessage = "Number should have validated false";
+
 //Validates that the correct output message is displayed on the "Validate Input" function
 export async function validateRandomNumber(inputName) {
   let randomNumber = await getRandomNumber();
    await t.typeText(Selector(`[id="numb"]`), `${randomNumber}`, { replace: true });
    await t.click(Site.button.submit);
   if (randomNumber <= 10) {
-   await t.expect(Selector('p').withText('Input OK').exists).ok('Number 7 should have validated true');
-} else {await t.expect(Selector('p').withText('Input not valid').exists).ok('Number 12 should have validated false');}
+   await t.expect(Selector('p').withText('Input OK').exists).ok(trueMessage);
+} else {await t.expect(Selector('p').withText('Input not valid').exists).ok(falseMessage);}
 };
 
 //Validates that the correct output message is displayed on the second "Validate Input" function
@@ -40,8 +43,8 @@ export async function validateSecondRandomNumber(inputName) {
    await t.typeText(Selector(`[id="numb2"]`), `${randomNumber}`, { replace: true });
    await t.click(Site.button.submitAgain);
   if (randomNumber >= 11) {
-   await t.expect(Selector('p').withText('Input OK').exists).ok('Number 7 should have validated true');
-} else {await t.expect(Selector('p').withText('Input not valid').exists).ok('Number 12 should have validated false');}
+   await t.expect(Selector('p').withText('Input OK').exists).ok(trueMessage);
+} else {await t.expect(Selector('p').withText('Input not valid').exists).ok(falseMessage);}
 };
 
 //Runs through an array of contact info expected to be visible on the page
