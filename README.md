@@ -13,3 +13,15 @@ Ex: To run the contact pages test suite in chrome, run the following the followi
 testcafe chrome contact-page.js
 
 ```
+
+Run an entire folder of test files with one command:
+
+From above the /tests folder, run:
+```
+testcafe firefox tests/
+```
+Run 1 specific test from testfile:
+
+```
+testcafe safari -t Verify Page Buttons"
+```
