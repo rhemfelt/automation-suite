@@ -15,7 +15,7 @@ test("Validate Input Assertions", async (t) => {
   await t.setNativeDialogHandler(() => true);
   await t.click(Site.link.contact);
   await helpers.verifyContactInfo(contactArray);
-  await t.click(Selector('a').withText("feelslikepeach.com"));
+  await t.click(Site.link.peachURL);
   await t.click(Selector('a').withText("CONTACT"));
   await t.typeText(Selector(`[name="fname"]`), "TestCafe", { replace: true });
   await t.typeText(Selector(`[name="lname"]`), "User", { replace: true });
@@ -29,7 +29,8 @@ test("Validate Input Assertions", async (t) => {
   test("TreeHouse Link", async (t) => {
     await t.setNativeDialogHandler(() => true);
     await t.click(Site.link.about);
-    await t.click(Selector('a').withText("Treehouse Profile"));
+    await t.click(Site.link.treehouseURL);
 //verifies you are redirected to the correct TreeHouse URL
     await t.expect(await helpers.getPageAddress()).contains("teamtreehouse.com/rhemfelt");
+    await t.expect(Selector('h1').withText('7,303').exists).ok('Total points should be 7,303');
     });

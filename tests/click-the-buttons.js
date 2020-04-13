@@ -8,7 +8,7 @@ fixture`Verify Page Buttons`.page`http://roberthemfelt.com`;
 test("Verify Page Buttons", async (t) => {
   await t.setNativeDialogHandler(() => true);
   await t.click(Site.link.about);
-  await t.click(Selector("a").withText("Push the buttons"));
+  await t.click(Site.button.pushTheButtons);
   await helpers.clickThroughButtons([
     Selector("button").withText("Button 0"),
     Selector("button").withText("Button 1"),
@@ -22,7 +22,7 @@ test("Verify Page Buttons", async (t) => {
     Selector("button").withText("Button 9"),
   ]);
   await t.click(Site.button.back);
-  await t.click(Selector('a').withText('Random Circle Colors'));
+  await t.click(Site.button.randomCircleColors);
   await helpers.randomizeButtons();
   await t.click(Site.button.back);
   });
@@ -30,7 +30,7 @@ test("Verify Page Buttons", async (t) => {
   test("Change Font Color Button", async (t) => {
     await t.setNativeDialogHandler(() => true);
     await t.click(Site.link.about);
-    await t.click(Selector("a").withText("Testing getElementById"));
+    await t.click(Site.link.getElementById);
     await t.click(Site.button.clickMe);
     await t.expect(Selector(`[id="bigpic"]`).exists).ok('The image file should have appeared when button was clicked');
     });
