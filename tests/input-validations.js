@@ -20,7 +20,8 @@ export async function runThroughFiveRandomNumbers() {
 test("Validate Input Assertions", async (t) => {
   await t.setNativeDialogHandler(() => true);
   await t.click(Site.link.about);
-  await t.click(Selector("a").withText("Validate Number"));
+  await t.expect(await helpers.getPageAddress()).contains(Site.url.aboutAddress);
+  await t.click(Site.link.validateNumberLink);
   //Verifies the expected output string of the Validate Number function 10 times
   await runThroughTenRandomNumbers();
   //Verifies the expected output string of the second Validate Number function 5 times
