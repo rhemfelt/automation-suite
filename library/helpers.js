@@ -24,6 +24,16 @@ export async function getRandomNumber() {
   return Math.floor(Math.random() * 20) + 1;
 }
 
+//Returns a random number between 1-100
+export async function getLargerRandomNumber() {
+  return Math.floor(Math.random() * 100) + 1;
+}
+
+//Returns a random number between 1-1500
+export async function getLargestRandomNumber() {
+  return Math.floor(Math.random() * 1500) + 1;
+}
+
 let trueMessage = "Number should have validated true";
 let falseMessage = "Number should have validated false";
 
@@ -41,8 +51,26 @@ export async function validateRandomNumber(inputName) {
 export async function validateSecondRandomNumber(inputName) {
   let randomNumber = await getRandomNumber();
    await t.typeText(Selector(`[id="numb2"]`), `${randomNumber}`, { replace: true });
-   await t.click(Site.button.submitAgain);
-  if (randomNumber >= 11) {
+   await t.click(Site.button.submitSecond);
+  if (randomNumber >= 11 && randomNumber <= 20) {
+   await t.expect(Selector('p').withText('Input OK').exists).ok(trueMessage);
+} else {await t.expect(Selector('p').withText('Input not valid').exists).ok(falseMessage);}
+};
+
+export async function validateThirdRandomNumber(inputName) {
+  let randomNumber = await getLargerRandomNumber();
+   await t.typeText(Selector(`[id="numb3"]`), `${randomNumber}`, { replace: true });
+   await t.click(Site.button.submitThird);
+  if (randomNumber >= 20 && randomNumber <= 100) {
+   await t.expect(Selector('p').withText('Input OK').exists).ok(trueMessage);
+} else {await t.expect(Selector('p').withText('Input not valid').exists).ok(falseMessage);}
+};
+
+export async function validateFourthRandomNumber(inputName) {
+  let randomNumber = await getLargestRandomNumber();
+   await t.typeText(Selector(`[id="numb4"]`), `${randomNumber}`, { replace: true });
+   await t.click(Site.button.submitFourth);
+  if (randomNumber >= 100 && randomNumber <= 1000) {
    await t.expect(Selector('p').withText('Input OK').exists).ok(trueMessage);
 } else {await t.expect(Selector('p').withText('Input not valid').exists).ok(falseMessage);}
 };

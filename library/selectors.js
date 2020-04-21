@@ -11,7 +11,9 @@ export const Site = {
     pushTheButtons: Selector("a").withText("Push the buttons"),
     randomCircleColors: Selector('a').withText('Random Circle Colors'),
     submit: Selector("button").withText(/Submit/i),
-    submitAgain: Selector("button").withText("Submit").nth(1),
+    submitSecond: Selector("button").withText("Submit").nth(1),
+    submitThird: Selector("button").withText("Submit").nth(2),
+    submitFourth: Selector("button").withText("Submit").nth(3),
   },
 
 //For clicking links throughout the site
