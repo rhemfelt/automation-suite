@@ -31,6 +31,7 @@ export const Site = {
    aboutAddress: "roberthemfelt.com/about.html",
    contactAddress: "roberthemfelt.com/contact.html",
    mainAddress: "roberthemfelt.com",
+   namesAddress: "roberthemfelt.com/names",
    peachAddress: "feelslikepeach.com",
    treehouseAddress: "teamtreehouse.com/rhemfelt",
   },

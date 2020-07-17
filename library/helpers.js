@@ -91,3 +91,10 @@ export async function getPageAddress() {
   const url = ClientFunction(() => document.location.href);
   return url();
 }
+
+//Runs through the "re-randomize names" function 10 times
+export async function reRandomize() {
+  for (let i = 0; i < 10; i++) {
+      await t.click(Selector('a').withText("Re-Randomize the Boiz"));
+    }
+};
